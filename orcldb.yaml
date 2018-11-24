@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orcldb-pvc1
+  labels:
+    app: oracle
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi
+  storageClassName: oci
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orcldb-pvc2
+  labels:
+    app: oracle
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: oci
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orcldb
+  labels:
+    app: oracle
+spec:
+  selector:
+    matchLabels:
+      app: oracle
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: oracle
+    spec:
+      containers:
+      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
+        name: orcldb
+        ports:
+        - containerPort: 1521
+          name: orcldb
+        volumeMounts:
+        - name: orcldb-pers-stor1
+          mountPath: /ORCL
+#       - name: orcldb-pers-stor2
+#          mountPath: /home/oracle/
+      imagePullSecrets:
+        - name: orclcred
+      volumes:
+        - name: orcldb-pers-stor1
+          persistentVolumeClaim:
+            claimName: orcldb-pvc1
+        - name: orcldb-pers-stor2
+          persistentVolumeClaim:
+            claimName: orcldb-pvc2
+
+
+
+
+  
