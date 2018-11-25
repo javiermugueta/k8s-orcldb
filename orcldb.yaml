@@ -52,9 +52,9 @@ spec:
         ports:
         - containerPort: 1521
           name: orcldb
-#        volumeMounts:
-#        - name: orcldb-pers-stor1
-#          mountPath: /u01
+        volumeMounts:
+        - name: orcldb-pers-stor1
+          mountPath: /pepe
 #       - name: orcldb-pers-stor2
 #          mountPath: /home/oracle/
       imagePullSecrets:
