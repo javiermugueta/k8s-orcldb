@@ -56,8 +56,8 @@ spec:
 #          mountPath: /ORCL
 #       - name: orcldb-pers-stor2
 #          mountPath: /home/oracle/
-      imagePullSecrets:
-        - name: orclcred
+#      imagePullSecrets:
+#        - name: orclcred
 #      volumes:
 #        - name: orcldb-pers-stor1
 #          persistentVolumeClaim:
