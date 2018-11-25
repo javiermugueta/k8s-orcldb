@@ -54,7 +54,7 @@ spec:
           name: orcldb
         volumeMounts:
         - name: orcldb-pers-stor1
-          mountPath: /pepe
+          mountPath: /opt/oracle
 #       - name: orcldb-pers-stor2
 #          mountPath: /home/oracle/
       imagePullSecrets:
