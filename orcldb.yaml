@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: orcldb-pvc1
+  name: orcldb-pvcu1
   labels:
     app: oracledb
 spec:
@@ -10,13 +10,13 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 200Gi
+      storage: 20Gi
   storageClassName: oci
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: orcldb-pvc2
+  name: orcldb-pvcu2
   labels:
     app: oracledb
 spec:
@@ -24,7 +24,35 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 20Gi
+  storageClassName: oci
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orcldb-pvcu3
+  labels:
+    app: oracledb
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: oci
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orcldb-pvcu4
+  labels:
+    app: oracledb
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
   storageClassName: oci
 ---
 apiVersion: apps/v1
@@ -54,18 +82,28 @@ spec:
           name: orcldb
         volumeMounts:
         - name: orcldb-pers-stor1
-          mountPath: /opt/oracle
-#       - name: orcldb-pers-stor2
-#          mountPath: /home/oracle/
+          mountPath: /u01
+        - name: orcldb-pers-stor2
+          mountPath: /u02
+        - name: orcldb-pers-stor3
+          mountPath: /u03
+        - name: orcldb-pers-stor4
+          mountPath: /u04
       imagePullSecrets:
         - name: orclcred
       volumes:
         - name: orcldb-pers-stor1
           persistentVolumeClaim:
-            claimName: orcldb-pvc1
-#        - name: orcldb-pers-stor2
-#          persistentVolumeClaim:
-#            claimName: orcldb-pvc2
+            claimName: orcldb-pvcu1
+        - name: orcldb-pers-stor2
+          persistentVolumeClaim:
+            claimName: orcldb-pvcu2
+        - name: orcldb-pers-stor3
+          persistentVolumeClaim:
+            claimName: orcldb-pvcu3
+        - name: orcldb-pers-stor4
+          persistentVolumeClaim:
+            claimName: orcldb-pvcu4
 ---
 apiVersion: v1
 kind: Service
