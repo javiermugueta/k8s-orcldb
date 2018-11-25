@@ -5,13 +5,13 @@ metadata:
   name: orcldb-pvc1
   labels:
     app: oracledb
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 200Gi
-  storageClassName: oci
+#spec:
+#  accessModes:
+#  - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 200Gi
+#  storageClassName: oci
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
