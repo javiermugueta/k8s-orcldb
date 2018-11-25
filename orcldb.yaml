@@ -57,13 +57,13 @@ spec:
 #          mountPath: /home/oracle/
       imagePullSecrets:
         - name: orclcred
-      volumes:
-        - name: orcldb-pers-stor1
-          persistentVolumeClaim:
-            claimName: orcldb-pvc1
-        - name: orcldb-pers-stor2
-          persistentVolumeClaim:
-            claimName: orcldb-pvc2
+#      volumes:
+#        - name: orcldb-pers-stor1
+#          persistentVolumeClaim:
+#            claimName: orcldb-pvc1
+#        - name: orcldb-pers-stor2
+#          persistentVolumeClaim:
+#            claimName: orcldb-pvc2
 
 
 
