@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: orcldb-pvc1
   labels:
-    app: oracle
+    app: oracledb
 spec:
   accessModes:
   - ReadWriteOnce
@@ -18,7 +18,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: orcldb-pvc2
   labels:
-    app: oracle
+    app: oracledb
 spec:
   accessModes:
   - ReadWriteOnce
@@ -32,17 +32,17 @@ kind: Deployment
 metadata:
   name: orcldb
   labels:
-    app: oracle
+    app: oracledb
 spec:
   selector:
     matchLabels:
-      app: oracle
+      app: oracledb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: oracle
+        app: oracledb
     spec:
       containers:
 #       - image: javiermugueta/orcl
@@ -66,3 +66,19 @@ spec:
 #        - name: orcldb-pers-stor2
 #          persistentVolumeClaim:
 #            claimName: orcldb-pvc2
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: oracledb
+spec:
+ type: LoadBalancer
+ selector:
+   app: oracledb
+ ports:
+   - name: client
+     protocol: TCP
+     port: 1521
+     nodePort: 1521
+ selector:
+   app: oracledb
