@@ -79,6 +79,6 @@ spec:
    - name: client
      protocol: TCP
      port: 1521
-     nodePort: 1521
+     nodePort: 31521
  selector:
    app: oracledb
