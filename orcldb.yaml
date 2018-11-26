@@ -91,6 +91,9 @@ spec:
 #          mountPath: /u04
       imagePullSecrets:
         - name: orclcred
+      securityContext:
+        runAsUser: 54321
+        fsGroup: 54321
       volumes:
         - name: orcldb-pers-stor1
           persistentVolumeClaim:
