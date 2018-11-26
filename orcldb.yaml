@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: orcldb-pvcu1
+  name: data-pvc
   labels:
     app: oracledb
 spec:
@@ -73,41 +73,26 @@ spec:
         app: oracledb
     spec:
       containers:
-      - image: javiermugueta/oracledb
+#      - image: javiermugueta/oracledb
 #      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
-#      - image: container-registry.oracle.com/database/standard
+      - image: container-registry.oracle.com/database/standard
         name: orcldb
         ports:
         - containerPort: 1521
           name: orcldb
         volumeMounts:
-        - name: orcldb-pers-stor1
+        - name: data
           mountPath: /ORCL
-#        - name: orcldb-pers-stor2
-#          mountPath: /u02
-#        - name: orcldb-pers-stor3
-#          mountPath: /u03
-#        - name: orcldb-pers-stor4
-#          mountPath: /u04
       imagePullSecrets:
-        - name: orclcred
+        - name: ocrcred
       securityContext:
         runAsNonRoot: true
         runAsUser: 54321
         fsGroup: 54321
       volumes:
-        - name: orcldb-pers-stor1
+        - name: data
           persistentVolumeClaim:
-            claimName: orcldb-pvcu1
-#        - name: orcldb-pers-stor2
-#          persistentVolumeClaim:
-#            claimName: orcldb-pvcu2
-#        - name: orcldb-pers-stor3
-#          persistentVolumeClaim:
-#            claimName: orcldb-pvcu3
-#        - name: orcldb-pers-stor4
-#          persistentVolumeClaim:
-#            claimName: orcldb-pvcu4
+            claimName: data-pvc
 ---
 apiVersion: v1
 kind: Service
