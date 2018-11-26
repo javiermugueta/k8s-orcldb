@@ -73,9 +73,9 @@ spec:
         app: oracledb
     spec:
       containers:
-#      - image: javiermugueta/oracledb
+      - image: javiermugueta/oracledb
 #      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
-      - image: container-registry.oracle.com/database/standard
+#      - image: container-registry.oracle.com/database/standard
         name: orcldb
         ports:
         - containerPort: 1521
