@@ -92,6 +92,7 @@ spec:
       imagePullSecrets:
         - name: orclcred
       securityContext:
+        runAsNonRoot: true
         runAsUser: 54321
         fsGroup: 54321
       volumes:
