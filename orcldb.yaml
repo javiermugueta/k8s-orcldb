@@ -73,8 +73,8 @@ spec:
         app: oracledb
     spec:
       containers:
-#      - image: javiermugueta/orcl
-      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
+      - image: javiermugueta/oracledb
+#      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
 #      - image: container-registry.oracle.com/database/standard
         name: orcldb
         ports:
@@ -82,7 +82,7 @@ spec:
           name: orcldb
         volumeMounts:
         - name: orcldb-pers-stor1
-          mountPath: /pppp
+          mountPath: /ORCL
 #        - name: orcldb-pers-stor2
 #          mountPath: /u02
 #        - name: orcldb-pers-stor3
