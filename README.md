@@ -1,5 +1,5 @@
 # k8s-orcldb
-An Oracle dababase container image that cam be deployed in k8s maintaining persistence
+An Oracle dababase container image that can be deployed in k8s maintaining persistence
 
 # For deploying in k8s execute the following:
 kubectl apply -f https://raw.githubusercontent.com/javiermugueta/k8s-orcldb/master/orcldb.yaml
