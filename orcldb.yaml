@@ -13,48 +13,6 @@ spec:
       storage: 20Gi
   storageClassName: oci
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: orcldb-pvcu2
-  labels:
-    app: oracledb
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-  storageClassName: oci
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: orcldb-pvcu3
-  labels:
-    app: oracledb
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-  storageClassName: oci
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: orcldb-pvcu4
-  labels:
-    app: oracledb
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-  storageClassName: oci
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
