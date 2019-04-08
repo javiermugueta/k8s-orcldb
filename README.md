@@ -1,4 +1,6 @@
-# you need credentials to container-registry.oracle.com
+# oracle database on k8s
+
+## get credentials to container-registry.oracle.com
 You must accept the licence agreement!!!
 
 ## deployment steps:
