@@ -44,7 +44,8 @@ SQL>exit
 MacBook-Pro:~ javiermugueta$
 ```
 ## sqldeveloper config
-The following screenshoots may help you configure connectios for sys and your work user. Two different  connection strings have been utilized just for your convenience
+The following screenshoots may help you configure connections for sys and your working user as well. Two different  connection strings have been utilized just for your convenience.
 
 ![sqldev1](https://github.com/javiermugueta/k8s-orcldb/blob/master/sqldeveloper1.jpg)
+
 ![sqldev2](https://github.com/javiermugueta/k8s-orcldb/blob/master/sqldeveloper2.jpg)
