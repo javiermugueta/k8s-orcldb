@@ -31,9 +31,9 @@ spec:
         app: oracledb
     spec:
       containers:
-      - image: javiermugueta/oracledb
+#      - image: javiermugueta/oracledb
 #      - image: fra.ocir.io/telefonicacloud2/atrepo/orcldb:latest
-#      - image: container-registry.oracle.com/database/standard
+      - image: container-registry.oracle.com/database/enterprise:12.2.0.1
         name: orcldb
         ports:
         - containerPort: 1521
@@ -42,7 +42,7 @@ spec:
         - name: data
           mountPath: /ORCL
       imagePullSecrets:
-        - name: ocrcred
+        - name: oradocreg
       securityContext:
         runAsNonRoot: true
         runAsUser: 54321
