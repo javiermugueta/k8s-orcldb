@@ -13,13 +13,12 @@ kubectl apply -f https://raw.githubusercontent.com/javiermugueta/k8s-orcldb/mast
 ## further config steps
 
 ```
-kubectl get pods
 
 MacBook-Pro:~ javiermugueta$ kubectl get pods
 NAME                      READY   STATUS    RESTARTS   AGE
 orcldb-xxxxxxxxx   1/1     Running   0          15m
 
-kubectl exec -it orcldb-xxxxxxxxx -- bash
+MacBook-Pro:~ javiermugueta$ kubectl exec -it orcldb-xxxxxxxxx -- bash
 
 [oracle@orcldb-xxxxxxxxx /]$ sqlplus / as sysdba
 SQL*Plus: Release 12.2.0.1.0 Production on Mon Apr 8 22:16:22 2019
@@ -34,6 +33,7 @@ SQL>grant connect, resource to ainos;
 SQL>grant create materialized view to ainos;
 SQL>exit
 [oracle@orcldb-xxxxxxxxx /]$exit
+MacBook-Pro:~ javiermugueta$
 ```
 ## sqldeveloper config
 ![sqldev1](https://github.com/javiermugueta/k8s-orcldb/blob/master/sqldeveloper1.jpg)
