@@ -1,9 +1,10 @@
 # oracle database on k8s
 
 ## get credentials to container-registry.oracle.com
-You must accept the licence agreement!!!
+You must have a registered user and accept the licence agreement!!!
+https://container-registry.oracle.com
 
-## deployment steps:
+## deployment steps
 ```
 kubectl create secret docker-registry oradocreg --docker-username=<youruser> --docker-password=<yourpassword> --docker-server=container-registry.oracle.com
 
@@ -11,7 +12,7 @@ kubectl apply -f https://raw.githubusercontent.com/javiermugueta/k8s-orcldb/mast
 ```
 ## further config steps
 
-````
+```
 kubectl get pods
 
 MacBook-Pro:~ javiermugueta$ kubectl get pods
@@ -34,3 +35,6 @@ SQL>grant create materialized view to ainos;
 SQL>exit
 [oracle@orcldb-xxxxxxxxx /]$exit
 ```
+## sqldeveloper config
+![sqldev1](https://github.com/javiermugueta/k8s-orcldb/blob/master/sqldeveloper1.jpg)
+![sqldev2](https://github.com/javiermugueta/k8s-orcldb/blob/master/sqldeveloper2.jpg)
